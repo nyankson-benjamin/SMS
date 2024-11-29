@@ -61,7 +61,7 @@ const TeacherForm: React.FC<TeacherFormProps> = ({ onClose, initialValues }) => 
                 value={values.name}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={touched.name && errors.name}
+                error={touched.name ? errors.name : ""}
               />
               
               <Input
@@ -71,7 +71,7 @@ const TeacherForm: React.FC<TeacherFormProps> = ({ onClose, initialValues }) => 
                 value={values.email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={touched.email && errors.email}
+                error={touched.email ? errors.email : ""}
               />
               
               <Input
@@ -80,7 +80,7 @@ const TeacherForm: React.FC<TeacherFormProps> = ({ onClose, initialValues }) => 
                 value={values.subject}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={touched.subject && errors.subject}
+                error={touched.subject ? errors.subject : ""}
               />
               
               <Input
@@ -89,7 +89,7 @@ const TeacherForm: React.FC<TeacherFormProps> = ({ onClose, initialValues }) => 
                 value={values.department}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={touched.department && errors.department}
+                error={touched.department ? errors.department :''}
               />
               
               <div className="flex justify-end gap-2">

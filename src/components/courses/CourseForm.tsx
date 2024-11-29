@@ -65,7 +65,7 @@ const CourseForm: React.FC<CourseFormProps> = ({ onClose, initialValues }) => {
                 value={values.name}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={touched.name && errors.name}
+                error={touched.name ? errors.name : ""}
               />
               
               <div className="mb-4">
@@ -98,7 +98,7 @@ const CourseForm: React.FC<CourseFormProps> = ({ onClose, initialValues }) => {
                 value={values.credits}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                error={touched.credits && errors.credits}
+                error={touched.credits ? errors.credits : ""}
               />
               
               <div className="mb-4">

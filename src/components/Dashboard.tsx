@@ -1,8 +1,7 @@
-import React from 'react';
 import { useStore } from '../store/useStore';
 import { Users, GraduationCap, BookOpen, Building2 } from 'lucide-react';
 
-const StatCard = ({ title, value, icon: Icon }: { title: string; value: number; icon: any }) => (
+const StatCard = ({ title, value, icon: Icon }: { title: string; value: number; icon: React.ComponentType<React.SVGProps<SVGSVGElement>> }) => (
   <div className="bg-white rounded-lg p-6 shadow-md">
     <div className="flex items-center justify-between">
       <div>
@@ -15,7 +14,7 @@ const StatCard = ({ title, value, icon: Icon }: { title: string; value: number; 
 );
 
 const Dashboard = () => {
-  const { students, teachers, courses, departments } = useStore();
+  const { students, teachers, courses, departments, activities } = useStore();
 
   return (
     <div className="p-6">
@@ -28,9 +27,12 @@ const Dashboard = () => {
       </div>
       
       <div className="mt-8">
-        <h2 className="text-xl font-semibold mb-4">Recent Activity</h2>
-        <div className="bg-white rounded-lg shadow-md p-4">
-          <p className="text-gray-500">No recent activity</p>
+        <h2 className="text-xl font-semibold mb-4">Recent Activities</h2>
+        <div className="bg-white rounded-lg shadow-md p-4 text-gray-500 border border-gray-200 h-[60vh] overflow-auto">
+         {!activities.length && <p className="text-center text-gray-400">No recent activity</p>}
+          {activities.map((activity, index) => (
+            <p key={index} className="border-b last:border-b-0 py-2 hover:bg-slate-50 p-2">{activity}</p>
+          ))}
         </div>
       </div>
     </div>
